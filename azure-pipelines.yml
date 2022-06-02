@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool:LinuxA
+  #vmImage: 'ubuntu-latest'
 
 variables:
   phpVersion: 7.2
@@ -22,11 +22,3 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
-
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
-    includeRootFolder: false
-- task: PublishBuildArtifacts@1
